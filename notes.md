@@ -23,7 +23,12 @@
 
 # Register functions
 x0 - x7     - Parameters, scratch
-
-
-x30 - Link register - stores return point after called function ends
-x31 - N/A
+x8          - Indirect result location register
+x9 - x15    - Scratch
+x16, x17    - Intra-procedure-call temporary registers. Linker may use these in PLT code
+x18         - Platform register. Reserved for platform ABI
+x19 - x28   - Scratch. But, save and restore contents
+x29         - Frame pointer - points to current stack frame
+x30         - Link register - stores return point after called function ends
+sp          - stack pointer
+pc          - program counter
