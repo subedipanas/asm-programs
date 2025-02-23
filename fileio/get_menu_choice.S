@@ -17,7 +17,7 @@ choice:             .word   0
 get_menu_choice:
     stp     x19, x30, [sp, -16]!
 
-    mov     max_choice, #5
+    mov     max_choice, w0
 
 5:
     //      display choice message
