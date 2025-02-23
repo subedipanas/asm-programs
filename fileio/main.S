@@ -1,5 +1,9 @@
     .data
-debug:      .asciz  "(main) Filename: %s\n"
+debug:      .asciz  "(main) In create\n"
+debug2:     .asciz  "(main) In write\n"
+debug3:     .asciz  "(main) In append\n"
+debug4:     .asciz  "(main) In read\n"
+debug5:     .asciz  "(main) In delete\n"
 
     .text
     .global main
@@ -45,6 +49,7 @@ jt:
     b       15f
     b       20f
     b       25f
+    b       30f
 
 10:
     //      create file
@@ -61,8 +66,10 @@ jt:
 
 25:
     //      read a file
+    b       50f
 
-
+30:
+    //      delete a file
 
 50:
     //      loop to start
