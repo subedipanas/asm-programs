@@ -4,8 +4,8 @@ in_buffer:      .space  24
 
 in_format:      .asciz  "%20s"
 msg_get_file:   .asciz  "Enter a file name: "
-msg_inv_file:   .asciz  "Invalid filename. "
-msg_filename:   .asciz  "Full filename: %s"
+msg_inv_file:   .asciz  "Invalid filename. \n"
+msg_filename:   .asciz  "Full filename: %s\n"
 
     .text
     .global get_file_name
