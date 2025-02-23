@@ -10,9 +10,10 @@ debug2:         .asciz  "Counter: %d\n"
 
     filename        .req    x0
     current_char    .req    w1
+    counter         .req    w2
 validate_filename:
 
-    mov     filename, x0
+    mov     counter, wzr
 
     b       10f
 5:
@@ -43,13 +44,14 @@ validate_filename:
 
 10:
     ldrb    current_char, [filename], 1
+    add     counter, counter, 1
 
     //      check for null terminator
     cbnz    current_char, 5b
 
 90:
     //      valid filename
-    mov     x0, xzr
+    mov     w0, counter
     ret
 
 95:
