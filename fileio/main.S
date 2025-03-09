@@ -18,7 +18,7 @@ main:
     str     x20, [sp, -16]!
     
 5:
-    bl      menu
+    bl      show_menu
     mov     max_choice, w0
 
     bl      get_menu_choice
