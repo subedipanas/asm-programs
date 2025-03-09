@@ -27,8 +27,8 @@ main:
     //      assuming max choice is always Quit
     cmp     choice, max_choice
     beq     95f
-
     //      got file name
+    
     bl      get_file_name
     mov     file_name, x0
 
@@ -58,6 +58,7 @@ jt:
 
 15:
     //      write to a file
+    bl      write_to_file
     b       50f
 
 20:
