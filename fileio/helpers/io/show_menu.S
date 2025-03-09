@@ -8,11 +8,11 @@ line5:      .asciz  "5. Delete a file\n"
 line6:      .asciz  "6. Quit\n\n"
 
     .text
-    .global menu
+    .global show_menu
 
     .equ    MAX_CHOICES, 6
 
-menu:
+show_menu:
     str     x30, [sp, -16]!
 
     ldr     x0, =title

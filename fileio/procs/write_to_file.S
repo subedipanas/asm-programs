@@ -1,8 +1,7 @@
     .data
 msg_fail_open:  .asciz  "File open failed. Try again.\n"
 msg_fail_close: .asciz  "File close failed.\n"
-debug1:         .asciz  "Bytes written: %d\n"
-debug2:         .asciz  "Getting input now\n"
+prompt:         .asciz  "Enter lines to write. Empty line to quit.\n"
 t_size:         .word   100
 in_buffer:      .space  100
 
@@ -30,13 +29,13 @@ write_to_file:
 
     bl      clearInputBuffer
 
+    ldr     x0, =prompt
+    bl      printf
+
 5:  //      start write loop
     //      empty line to break
 
     //      get input line
-    ldr     x0, =debug2
-    bl      printf
-    
     ldr     x0, =in_buffer
     ldr     x1, =t_size
     ldr     w1, [x1]
@@ -57,10 +56,6 @@ write_to_file:
     mov     w0, fd
     ldr     x1, =in_buffer
     bl      write
-
-    mov     w1, w0
-    ldr     x0, =debug1
-    bl      printf
 
     b       5b
 
