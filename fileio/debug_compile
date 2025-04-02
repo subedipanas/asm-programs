@@ -1,0 +1,5 @@
+find . -name "*.c" -exec gcc -g -c {} \;
+find . -name "*.S" -exec gcc -g -c {} \;
+gcc -g *.o -o app.out
+
+rm *.o
